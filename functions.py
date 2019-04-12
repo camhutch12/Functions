@@ -9,19 +9,21 @@ def python_food():
 we also declare default parameters in python '''
 
 
-def center_text(*args, sep=' ', end='\n', file=None, flush=False):
+def center_text(*args, sep=' '):
     text = ""
     for arg in args:
         text += str(arg) + sep
     left_margin = (80 - len(text) // 2)
-    print(" " * left_margin, text, end=end, file=file, flush=flush)
+    return " " * left_margin + text
 
 '''writes the current information to a file'''
-with open("centered",mode='w') as center_file:
-    python_food()
-    center_text("spam spam spam and spam",file=center_file)
-    center_text(12)
-    center_text("spam spam and eggs",file=center_file)
+# with open("centered",mode='w') as center_file:
+python_food()
+s1=(center_text("spam spam spam and spam"))
+center_text(12)
+s2=(center_text("spam spam and eggs"))
+s3=(center_text("First", "second", "3", "4", 'spam'))
+print(s1)
+print(s2)
+print(s3)
 
-    center_text("First", "second", "3", "4", 'spam', sep="-",file=center_file)
-    print()
